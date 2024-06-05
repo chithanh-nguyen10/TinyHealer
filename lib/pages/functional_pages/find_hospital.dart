@@ -71,7 +71,6 @@ class _FindHospitalState extends State<FindHospital> with SingleTickerProviderSt
       );
       setState(() {
         ready = true;
-        print(widget.result);
         if (widget.result[0] != "null"){
           typesList.clear();
           Set<String> typeSets = {};
@@ -196,7 +195,7 @@ class _FindHospitalState extends State<FindHospital> with SingleTickerProviderSt
         _calculateRoute(
           searchResult[i].lat,
           searchResult[i].lon,
-          10.713386055785854, 106.64598799210155
+          _currentPosition.latitude, _currentPosition.longitude, 
         ).then((_){
           routeResult.add(result);
           print(result.distance);
@@ -217,12 +216,12 @@ class _FindHospitalState extends State<FindHospital> with SingleTickerProviderSt
     double dista = _coordinateDistance(
       a.lat,
       a.lon,
-      10.713386055785854, 106.64598799210155
+      _currentPosition.latitude, _currentPosition.longitude, 
     );
     double distb = _coordinateDistance(
       b.lat,
       b.lon,
-      10.713386055785854, 106.64598799210155
+     _currentPosition.latitude, _currentPosition.longitude, 
     );
 
     if (dista + ESP < distb) return -1;
