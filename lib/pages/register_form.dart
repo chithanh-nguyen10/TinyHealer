@@ -270,16 +270,16 @@ class _RegisterFormState extends State<RegisterForm>  with TickerProviderStateMi
   }
 
   void next() {
-    if (firstnameController.text.length <= 3){
-      showMessage("First Name must be at least 4 characters long");
+    if (firstnameController.text.length == 0){
+      showMessage("Hãy điền tên của bạn");
       return;
     }
     if (lastnameController.text.length == 0){
-      showMessage("Please enter last name");
+      showMessage("Hãy điền họ của bạn");
       return;
     }
     if (dob == "DD/MM/YYYY"){
-      showMessage("Please enter your birthday");
+      showMessage("Hãy điền ngày sinh của bạn");
       return;
     }
     setState(() {
