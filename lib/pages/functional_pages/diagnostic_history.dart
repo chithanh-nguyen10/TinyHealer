@@ -118,7 +118,6 @@ class _DiagnosticHistoryState extends State<DiagnosticHistory> with TickerProvid
             itemCount: historyData.length,
             itemBuilder: (context, index) {
               final item = historyData[index];
-              print(item);
               return Column(
                 children: [
                   InkWell(
